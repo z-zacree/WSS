@@ -1,2 +1,2 @@
 # WSS
-Exercises for WSS
+Week 1 Exercise
