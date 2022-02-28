@@ -1,0 +1,8 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.imgContainer {
+  display: flex;
+  justify-content: center;
+}

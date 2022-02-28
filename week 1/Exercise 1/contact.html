@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <h1>The Black Goose Blog</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </header>
+    <section id="contact">
+      <h2>Contact Us - Reservation</h2>
+      <table>
+        <tr>
+          <td><label for="firstName">First Name:</label></td>
+          <td><input id="firstName" name="firstName" type="text" /></td>
+        </tr>
+        <tr>
+          <td><label for="lastName">Last Name:</label></td>
+          <td><input id="lastName" name="lastName" type="text" /></td>
+        </tr>
+        <tr>
+          <td><label for="email">Email:</label></td>
+          <td><input id="email" name="email" type="text" /></td>
+        </tr>
+        <tr>
+          <td><label for="date">Date:</label></td>
+          <td><input id="date" name="date" type="date" /></td>
+        </tr>
+        <tr>
+          <td><label for="time">Time:</label></td>
+          <td><input id="time" name="time" type="time" /></td>
+        </tr>
+        <tr>
+          <td><label for="numPpl">No. of People:</label></td>
+          <td>
+            <span>
+              <input name="numPpl" id="op1" type="radio" value="1" />
+              <label for="op1">1</label>
+            </span>
+            <span>
+              <input name="numPpl" id="op2" type="radio" value="2" />
+              <label for="op2">2</label>
+            </span>
+            <span>
+              <input name="numPpl" id="op3" type="radio" value="3" />
+              <label for="op3">3</label>
+            </span>
+            <span>
+              <input name="numPpl" id="op4" type="radio" value="4" />
+              <label for="op4">4</label>
+            </span>
+            <span>
+              <input name="numPpl" id="op5" type="radio" value="5" />
+              <label for="op5">5</label>
+            </span>
+            <span>
+              <input name="numPpl" id="op6" type="radio" value="6" />
+              <label for="op6">6</label>
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="reserve">Purpose of Reservation:</label></td>
+          <td>
+            <select name="reservePurpose" id="reserve">
+              <option value="">none</option>
+              <option value="Anniversary">Anniversary</option>
+              <option value="Birthday">Birthday</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="sI">Special Instructions:</label></td>
+          <td><textarea id="sI" name="sI" rows="2"></textarea></td>
+        </tr>
+      </table>
+      <button type="submit">Send</button>
+    </section>
+  </body>
+</html>
