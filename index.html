@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Home</title>
+        <link rel="stylesheet" href="imports/bootstrap.min.css" />
+        <link rel="stylesheet" href="style.css" />
+        <script defer src="imports/jquery-3.6.0.js"></script>
+        <script defer src="imports/bootstrap.bundle.min.js"></script>
+        <script defer src="app.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-dark bg-dark">
+                <a href="index.html" class="navbar-brand mb-0 h1">TodoList</a>
+                <button
+                    type="button"
+                    class="btn btn-outline-primary"
+                    data-toggle="modal"
+                    data-target="#createTaskModal"
+                    id="createTaskBtn"
+                >
+                    Add Task
+                </button>
+            </nav>
+        </header>
+        <main>
+            <div class="container mt-4" id="notSignedIn">
+                <div class="row">
+                    <div
+                        class="col-md d-flex justify-content-center align-items-md-center"
+                    >
+                        <span>
+                            <h1>My To-do List</h1>
+                            <p>Log in now to view your tasks and more!</p>
+                        </span>
+                    </div>
+                    <div class="col-md d-flex flex-column align-items-center">
+                        <div class="card form-width">
+                            <div class="card-body">
+                                <form id="loginForm">
+                                    <div class="form-group">
+                                        <input
+                                            class="form-control py-4"
+                                            placeholder="Username"
+                                            type="text"
+                                            name="username"
+                                            id="username"
+                                            required
+                                        />
+                                    </div>
+                                    <div class="form-group">
+                                        <input
+                                            class="form-control py-4"
+                                            placeholder="Password"
+                                            type="text"
+                                            name="password"
+                                            id="password"
+                                            required
+                                        />
+                                    </div>
+                                    <div class="form-group">
+                                        <div
+                                            class="alert alert-danger collapse"
+                                            role="alert"
+                                            id="loginAlert"
+                                        >
+                                            Wrong password or account :(
+                                        </div>
+                                    </div>
+                                    <button
+                                        class="btn btn-primary py-2 w-100"
+                                        type="submit"
+                                    >
+                                        Log in!
+                                    </button>
+                                </form>
+
+                                <hr class="my-4" />
+                                <button
+                                    type="button"
+                                    class="btn btn-success py-2 w-100"
+                                    data-toggle="modal"
+                                    data-target="#signUpModal"
+                                >
+                                    Sign up!
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-4" id="signedIn">
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="card w-100 mb-4">
+                            <div class="card-header">To do:</div>
+                            <ul
+                                class="list-group list-group-flush"
+                                id="incomplete-tasks"
+                            ></ul>
+                        </div>
+                    </div>
+                    <div class="col-lg">
+                        <div class="card w-100">
+                            <div class="card-header">Completed:</div>
+                            <ul
+                                class="list-group list-group-flush"
+                                id="complete-tasks"
+                            ></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Create Task Modal -->
+        <div
+            class="modal fade"
+            id="createTaskModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            Add a task
+                        </h5>
+                        <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                        >
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form id="createTaskForm">
+                            <div class="form-group">
+                                <label for="taskTitle"> Title </label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="taskTitle"
+                                    id="taskTitle"
+                                    required
+                                />
+                                <small class="form-text text-muted">
+                                    Your title goes here
+                                </small>
+                            </div>
+                            <div class="form-group">
+                                <label for="taskDescription">
+                                    Description
+                                </label>
+                                <textarea
+                                    class="form-control"
+                                    name="taskDescription"
+                                    id="taskDescription"
+                                    rows="3"
+                                ></textarea>
+                                <small class="form-text text-muted">
+                                    Give your task a detailed description
+                                </small>
+                            </div>
+                            <div class="form-group">
+                                <label for="taskTime"> End time </label>
+                                <input
+                                    type="datetime-local"
+                                    class="form-control"
+                                    name="taskTime"
+                                    id="taskTime"
+                                    required
+                                />
+                                <small class="form-text text-muted">
+                                    Give your task a deadline
+                                </small>
+                            </div>
+                            <div class="form-group">
+                                <div class="d-flex flex-column">
+                                    <label for="taskCategories">
+                                        Categories
+                                    </label>
+                                    <div
+                                        class="d-flex align-items-center"
+                                        id="categories"
+                                    >
+                                        <span
+                                            class="badge badge-dark custom-badge"
+                                            id="createCategory"
+                                        >
+                                            &plus;
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-dismiss="modal"
+                            >
+                                Close
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                Create task
+                            </button>
+                            <button type="button" onclick="lala(event)">
+                                test
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sign up modal -->
+        <div
+            class="modal fade"
+            id="signUpModal"
+            tabindex="-1"
+            aria-labelledby="signUpModal"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title m-auto" id="signUpTitle">
+                            Sign up
+                        </h5>
+                        <button
+                            type="button"
+                            class="modal-button"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                        >
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="signUpForm">
+                            <div class="form-group">
+                                <input
+                                    class="form-control py-4"
+                                    placeholder="Username"
+                                    type="text"
+                                    name="username"
+                                    id="username"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <input
+                                    class="form-control py-4"
+                                    placeholder="Password"
+                                    type="text"
+                                    name="password"
+                                    id="password"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <div
+                                    class="alert alert-danger collapse"
+                                    role="alert"
+                                    id="signAlert"
+                                >
+                                    Username has been taken :(
+                                </div>
+                            </div>
+                            <button
+                                class="btn btn-success py-2 w-100"
+                                type="submit"
+                            >
+                                Sign up!
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
