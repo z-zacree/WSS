@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tic Tac Toe</title>
+        <link rel="stylesheet" href="imports/bootstrap.min.css" />
+        <link rel="stylesheet" href="style.css" />
+        <script defer src="imports/jquery-3.6.0.js"></script>
+        <script defer src="imports/bootstrap.bundle.min.js"></script>
+        <script defer src="app.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-dark bg-dark">
+                <span class="navbar-brand">Tic Tac Toe</span>
+            </nav>
+        </header>
+        <main>
+            <div class="container mt-4 view-start" id="loginView">
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="d-flex flex-column">
+                            <h1>Tic Tac Toe</h1>
+                            <p>Login now to view your matches and history</p>
+                        </div>
+                    </div>
+                    <div class="col-lg">
+                        <div class="card card-width">
+                            <div class="card-header">
+                                <h3 class="mb-0">Log in</h3>
+                            </div>
+                            <div class="card-body">
+                                <form id="loginForm">
+                                    <div class="form-group mb-2">
+                                        <label for="username"> Username </label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            name="username"
+                                            id="username"
+                                            placeholder="Username"
+                                            required
+                                        />
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="password"> Password </label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            name="password"
+                                            id="password"
+                                            placeholder="Password"
+                                            required
+                                        />
+                                    </div>
+                                    <div class="alert alert-danger view-start" role="alert" id="loginWarn">
+                                        Username or Password is incorrect, make sure to check again!
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100 mt-2">Log in</button>
+                                </form>
+                                <hr class="my-4" />
+                                <button
+                                    type="button"
+                                    class="btn btn-success w-100"
+                                    data-toggle="modal"
+                                    data-target="#signUpModal"
+                                >
+                                    Sign up
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-4 view-start" id="mainView">
+                <div class="row" id="gamesPlayed"></div>
+                <div class="row mt-4" id="gameInfo"></div>
+                <div class="row mt-4" id="gameResult"></div>
+                <div class="game-layout mt-4">
+                    <div class="game-container">
+                        <div class="row w-100 m-0">
+                            <div class="col tile" id="1-1"></div>
+                            <div class="col tile" id="1-2"></div>
+                            <div class="col tile" id="1-3"></div>
+                        </div>
+                        <div class="row w-100 m-0">
+                            <div class="col tile" id="2-1"></div>
+                            <div class="col tile" id="2-2"></div>
+                            <div class="col tile" id="2-3"></div>
+                        </div>
+                        <div class="row w-100 m-0">
+                            <div class="col tile" id="3-1"></div>
+                            <div class="col tile" id="3-2"></div>
+                            <div class="col tile" id="3-3"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="alert alert-danger mt-3 view-start" role="alert" id="moveWarn">
+                    Unable to place move. Please select another area
+                </div>
+                <div class="alert alert-danger mt-3 view-start" role="alert" id="gameWarn">
+                    Unable to place move. Game has ended
+                </div>
+
+                <div class="row mt-4 d-flex justify-content-center" id="nextGame">
+                    <button type="button" class="btn btn-outline-primary mx-2" id="newGameBtn">New game!</button>
+                    <button type="button" class="btn btn-outline-success mx-2" id="matchHistoryBtn">
+                        Match history
+                    </button>
+                </div>
+            </div>
+        </main>
+        <div class="modal fade" tabindex="-1" id="signUpModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Sign up</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="signUpForm">
+                            <div class="form-group mb-2">
+                                <label for="username"> Username </label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="username"
+                                    id="username"
+                                    placeholder="Username"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="password"> Password </label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="password"
+                                    id="password"
+                                    placeholder="Password"
+                                    required
+                                />
+                            </div>
+                            <div class="alert alert-danger view-start" role="alert" id="signUpWarn">
+                                Username has been taken :(
+                            </div>
+                            <button type="submit" class="btn btn-success w-100 mt-2">Sign up</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

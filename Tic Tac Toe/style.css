@@ -1,0 +1,25 @@
+.game-layout {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-container {
+    width: 300px;
+    height: 300px;
+}
+
+.tile {
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+}
+
+.card-width {
+    width: 350px;
+}
+
+.view-start {
+    display: none;
+}
